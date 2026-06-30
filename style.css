@@ -1,0 +1,1032 @@
+/* ==========================================
+   NETFLIX INDIA CLONE
+   STYLE.CSS - PART 1
+==========================================*/
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:'Poppins',Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#444;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#666;
+}
+
+/* ==========================
+        NAVBAR
+========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:20px 50px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:999;
+
+    transition:.4s;
+
+    background:linear-gradient(to bottom,
+    rgba(0,0,0,.8),
+    transparent);
+
+}
+
+.navbar.active{
+
+    background:#000;
+
+}
+
+.logo{
+
+    font-size:2rem;
+
+    color:#E50914;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:.95rem;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#b3b3b3;
+
+}
+
+.nav-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.nav-icons i{
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.nav-icons i:hover{
+
+    color:#E50914;
+
+}
+
+.nav-icons img{
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}
+
+/* Hamburger */
+
+.hamburger{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    cursor:pointer;
+
+}
+
+.hamburger span{
+
+    width:25px;
+
+    height:3px;
+
+    background:white;
+
+}
+
+/* ==========================
+        HERO
+========================== */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    background:url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 70px;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(to top,
+    #000 5%,
+    transparent 40%),
+
+    linear-gradient(to right,
+    rgba(0,0,0,.85),
+    rgba(0,0,0,.2));
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:600px;
+
+    animation:fadeHero 1.2s ease;
+
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:1.1rem;
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.hero-buttons button{
+
+    border:none;
+
+    outline:none;
+
+    padding:14px 32px;
+
+    border-radius:5px;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.play-btn{
+
+    background:white;
+
+    color:black;
+
+    font-weight:600;
+
+}
+
+.play-btn:hover{
+
+    transform:scale(1.05);
+
+    background:#ddd;
+
+}
+
+.info-btn{
+
+    background:rgba(109,109,110,.7);
+
+    color:white;
+
+}
+
+.info-btn:hover{
+
+    background:rgba(109,109,110,.4);
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================
+      MOVIE SECTION
+========================== */
+
+.movie-section{
+
+    padding:40px 50px;
+
+}
+
+.movie-section h2{
+
+    margin-bottom:18px;
+
+    font-size:1.6rem;
+
+}
+
+.slider-container{
+
+    position:relative;
+
+}
+
+.movie-row{
+
+    display:flex;
+
+    gap:12px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+}
+
+.movie-row::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.movie-card{
+
+    min-width:220px;
+
+    height:320px;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    background:#141414;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    flex-shrink:0;
+
+}
+
+.movie-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.movie-card:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.7);
+
+    z-index:5;
+
+}
+
+/* ==========================
+      SCROLL BUTTONS
+========================== */
+
+.scroll-btn{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:45px;
+
+    height:120px;
+
+    border:none;
+
+    background:rgba(0,0,0,.55);
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:5;
+
+}
+
+.scroll-btn:hover{
+
+    background:rgba(0,0,0,.85);
+
+}
+
+.left{
+
+    left:0;
+
+}
+
+.right{
+
+    right:0;
+
+}
+
+/* ==========================
+        TOP 10
+========================== */
+
+.top10-row{
+
+    display:flex;
+
+    gap:30px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+}
+
+.top10-row::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.top-card{
+
+    position:relative;
+
+    min-width:250px;
+
+}
+
+.rank{
+
+    position:absolute;
+
+    left:-15px;
+
+    bottom:-10px;
+
+    font-size:8rem;
+
+    font-weight:800;
+
+    color:black;
+
+    -webkit-text-stroke:2px white;
+
+    z-index:1;
+
+}
+
+.top-card img{
+
+    position:relative;
+
+    z-index:2;
+
+    width:180px;
+
+    height:270px;
+
+    border-radius:8px;
+
+    margin-left:60px;
+
+    transition:.4s;
+
+}
+
+.top-card img:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================
+      ANIMATION
+========================== */
+
+@keyframes fadeHero{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================================
+   NETFLIX INDIA CLONE
+   STYLE.CSS - PART 2
+==========================================*/
+
+/* ==========================
+      FOOTER
+========================== */
+
+footer{
+    margin-top:80px;
+    padding:60px 8%;
+    color:#b3b3b3;
+    background:#000;
+}
+
+footer p{
+    margin-bottom:25px;
+    font-size:15px;
+}
+
+.footer-links{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#b3b3b3;
+    font-size:14px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#fff;
+    text-decoration:underline;
+}
+
+footer select{
+    background:#111;
+    color:#fff;
+    border:1px solid #555;
+    padding:10px 18px;
+    margin-bottom:20px;
+    cursor:pointer;
+}
+
+footer .copyright{
+    margin-top:20px;
+    font-size:14px;
+    color:#888;
+}
+
+/* ==========================
+     BACK TO TOP
+========================== */
+
+#topBtn{
+
+    position:fixed;
+
+    bottom:30px;
+
+    right:30px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#E50914;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+
+    transition:.35s;
+
+}
+
+#topBtn:hover{
+
+    transform:translateY(-5px);
+
+    background:#ff1b29;
+
+}
+
+/* ==========================
+      MOVIE OVERLAY
+========================== */
+
+.movie-card{
+
+    position:relative;
+
+}
+
+.movie-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.95),
+        transparent
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.movie-card:hover::before{
+
+    opacity:1;
+
+}
+
+.movie-card::after{
+
+    content:"Watch Now";
+
+    position:absolute;
+
+    bottom:15px;
+
+    left:15px;
+
+    color:white;
+
+    font-weight:600;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.movie-card:hover::after{
+
+    opacity:1;
+
+}
+
+/* ==========================
+      BUTTON RIPPLE
+========================== */
+
+.hero-buttons button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.hero-buttons button::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+
+    height:10px;
+
+    background:rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    transition:.5s;
+
+}
+
+.hero-buttons button:active::after{
+
+    transform:scale(25);
+
+    opacity:0;
+
+}
+
+/* ==========================
+      SCROLL ANIMATION
+========================== */
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1s;
+
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================
+     HAMBURGER MENU
+========================== */
+
+@media(max-width:900px){
+
+.nav-links{
+
+    position:absolute;
+
+    top:80px;
+
+    left:-100%;
+
+    width:100%;
+
+    background:#000;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:30px;
+
+    transition:.4s;
+
+}
+
+.nav-links.active{
+
+    left:0;
+
+}
+
+.hamburger{
+
+    display:flex;
+
+}
+
+.nav-icons{
+
+    display:none;
+
+}
+
+.hero{
+
+    padding:0 35px;
+
+}
+
+.hero h1{
+
+    font-size:3rem;
+
+}
+
+.hero p{
+
+    font-size:1rem;
+
+}
+
+.footer-links{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ==========================
+        MOBILE
+========================== */
+
+@media(max-width:600px){
+
+.navbar{
+
+    padding:18px 20px;
+
+}
+
+.logo{
+
+    font-size:1.6rem;
+
+}
+
+.hero{
+
+    height:80vh;
+
+    padding:20px;
+
+}
+
+.hero h1{
+
+    font-size:2.3rem;
+
+}
+
+.hero p{
+
+    font-size:.9rem;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.hero-buttons button{
+
+    width:220px;
+
+}
+
+.movie-section{
+
+    padding:30px 20px;
+
+}
+
+.movie-card{
+
+    min-width:150px;
+
+    height:220px;
+
+}
+
+.top-card{
+
+    min-width:190px;
+
+}
+
+.top-card img{
+
+    width:130px;
+
+    height:190px;
+
+    margin-left:45px;
+
+}
+
+.rank{
+
+    font-size:6rem;
+
+}
+
+.footer-links{
+
+    grid-template-columns:1fr;
+
+}
+
+.scroll-btn{
+
+    display:none;
+
+}
+
+}
+
+/* ==========================
+      LARGE SCREENS
+========================== */
+
+@media(min-width:1500px){
+
+.hero h1{
+
+    font-size:5rem;
+
+}
+
+.movie-card{
+
+    min-width:250px;
+
+    height:360px;
+
+}
+
+}
+
+/* ==========================
+      EXTRA POLISH
+========================== */
+
+.movie-card:hover{
+
+    filter:brightness(1.1);
+
+}
+
+.nav-links a{
+
+    position:relative;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-5px;
+
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:#E50914;
+
+    transition:.35s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+.hero-content{
+
+    animation:fadeHero 1.2s ease;
+
+}
+
+.movie-section h2{
+
+    transition:.3s;
+
+}
+
+.movie-section h2:hover{
+
+    color:#E50914;
+
+}
+
+html{
+
+    scroll-padding-top:80px;
+
+}
